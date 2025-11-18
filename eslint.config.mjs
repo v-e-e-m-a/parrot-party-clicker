@@ -1,4 +1,3 @@
-
 import globals from "globals";
 import jest from "eslint-plugin-jest";
 import js from "@eslint/js";
