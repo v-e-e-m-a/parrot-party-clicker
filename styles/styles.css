@@ -24,3 +24,6 @@ body {
     user-select: none;
   }
   
+  .large {
+    width: 300px;
+  }

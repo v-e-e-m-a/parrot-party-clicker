@@ -8,14 +8,26 @@ const state = {
 };
 
 const updateClickCount = () => {
-  const parrotCountContainer = document.getElementById('parrot-count');
-  state.clickCount += 1;
-  parrotCountContainer.textContent = state.clickCount;
+    const parrotCountContainer = document.getElementById('parrot-count');
+    state.clickCount += 1;
+    parrotCountContainer.textContent = state.clickCount;
+
+    const parrot = document.querySelector('#parrot')
+    if (state.clickCount >= 10) {
+        parrot.classList.add('large')
+    }
 };
 
 // 2. Add a button called ‘reset’ that will reset the
 //    click count to ‘0’.
+const resetClickCount = () => {
+    state.clickCount = 0;
+    const parrotCountContainer = document.getElementById('parrot-count');
+    parrotCountContainer.textContent = state.clickCount;
 
+    const parrot = document.querySelector('#parrot')
+    parrot.classList.remove('large')
+}
 
 // 3. Add an effect whenever the clickCount
 //    reaches a specific number.
@@ -29,8 +41,10 @@ const updateClickCount = () => {
 // Box 4: When Box 4 is double clicked, an alert shows up
 
 const registerEventHandlers = () => {
-  const parrot = document.getElementById('parrot');
-  parrot.addEventListener('click', updateClickCount);
+    const parrot = document.getElementById('parrot');
+    parrot.addEventListener('click', updateClickCount);
+    const reset = document.getElementById('reset-button');
+    reset.addEventListener('click', resetClickCount);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);
