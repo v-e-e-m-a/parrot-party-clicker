@@ -1,8 +1,22 @@
 // Add javascript code to Party Parrot Clicker such that:
 
 // 1. A click on the Party Parrot increases the counter by 1
+
+const state = {
+  clickCount: 0, // # of clicks
+  clicked: false // whether the click me box is in its clicked state
+};
+
+const updateClickCount = () => {
+  const parrotCountContainer = document.getElementById('parrot-count');
+  state.clickCount += 1;
+  parrotCountContainer.textContent = state.clickCount;
+};
+
 // 2. Add a button called ‘reset’ that will reset the
 //    click count to ‘0’.
+
+
 // 3. Add an effect whenever the clickCount
 //    reaches a specific number.
 //    (Ex: make parrot bigger, smaller, change the text/emoji,
@@ -13,3 +27,10 @@
 // Box 2: When the spacebar is pressed down, make the text in Box 2 turn into a flan emoji
 // Box 3: When Box 3 is clicked on, make Party Parrot appear and disappear
 // Box 4: When Box 4 is double clicked, an alert shows up
+
+const registerEventHandlers = () => {
+  const parrot = document.getElementById('parrot');
+  parrot.addEventListener('click', updateClickCount);
+};
+
+document.addEventListener('DOMContentLoaded', registerEventHandlers);
